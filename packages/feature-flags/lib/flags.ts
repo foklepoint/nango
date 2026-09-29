@@ -72,6 +72,9 @@ export function buildFlags(client: FeatureFlagsClient) {
          */
         allowUnauthorizedMicrosoftTeamsWebhook(accountUuid: string) {
             return client.isEnabled('allow-unauthorized-microsoft-teams-webhook', { targetingKey: accountUuid, accountUuid }, false);
+        },
+        isAgentPlaygroundEnabled(accountUuid: string) {
+            return client.isEnabled('agent-playground', { targetingKey: accountUuid, accountUuid }, false);
         }
     };
 }

@@ -18,6 +18,7 @@ export type GetMeta = ApiEndpoint<{
             gettingStartedClosed: boolean;
             // Whether this account can reach its own trail; gates the dashboard UI.
             auditTrail: boolean;
+            agentPlayground: boolean;
         };
     };
 }>;
