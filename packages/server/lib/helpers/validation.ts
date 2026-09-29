@@ -25,7 +25,8 @@ export const webhookUrlSchema = z
     .optional()
     .refine(
         (url) => {
-            if (!url || url.trim() === '') return true;
+            // zod runs this refine even when z.url() already failed.
+            if (!url || url.trim() === '' || !URL.canParse(url)) return true;
             const hostname = new URL(url).hostname.replace(/\.+$/, '');
             return hostname !== 'nango.dev' && !hostname.endsWith('.nango.dev');
         },
